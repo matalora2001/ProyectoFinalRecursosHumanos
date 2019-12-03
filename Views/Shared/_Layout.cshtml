@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Gestor de RRHH</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -13,8 +13,8 @@
         .dropdown:hover > .dropdown-menu {
             display: block;
             /*background-color: #121111;*/
-            background: #a5aba1;
-            color: #494c46;
+            background: #b6ff00;
+            color: #808080;
             cursor: pointer;
             box-shadow: inset 0 0 2 1px #555953;
         }
@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de la aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Gestión de RRHH", "Index", "Gestion", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -84,7 +84,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Proyecto Final Recursos Humanos</p>
+            <p>&copy; @DateTime.Now.Year - Sistema Gestor de Recursos Humanos</p>
         </footer>
     </div>
 
