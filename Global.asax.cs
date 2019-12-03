@@ -8,7 +8,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace ProyectoFinalRecursosHumanos
+namespace ProyectoFinal
 {
     public class MvcApplication : System.Web.HttpApplication
     {

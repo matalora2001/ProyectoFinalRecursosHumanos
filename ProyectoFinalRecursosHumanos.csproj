@@ -131,7 +131,15 @@
     <Compile Include="Cargo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CargosController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\GestionController.cs" />
+    <Compile Include="Controllers\LicenciasController.cs" />
+    <Compile Include="Controllers\NominasController.cs" />
+    <Compile Include="Controllers\PermisosController.cs" />
+    <Compile Include="Controllers\Salida_EmpleadoController.cs" />
+    <Compile Include="Controllers\VacacionesController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -269,6 +277,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cargos\" />
+    <Folder Include="Views\Departamentos\" />
+    <Folder Include="Views\Empleados\" />
+    <Folder Include="Views\Gestion\" />
+    <Folder Include="Views\Licencias\" />
+    <Folder Include="Views\Nominas\" />
+    <Folder Include="Views\Permisos\" />
+    <Folder Include="Views\Salida_Empleado\" />
+    <Folder Include="Views\Vacaciones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

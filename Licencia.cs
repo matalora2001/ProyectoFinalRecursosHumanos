@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinalRecursosHumanos
+namespace ProyectoFinal
 {
     using System;
     using System.Collections.Generic;
