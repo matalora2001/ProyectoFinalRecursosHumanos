@@ -6,10 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoFinal.Context;
-using ProyectoFinal.Models;
+using ProyectoFinalRecursosHumanos.Context;
+using ProyectoFinalRecursosHumanos.Models;
 
-namespace ProyectoFinal.Controllers
+namespace ProyectoFinalRecursosHumanos.Controllers
 {
     public class DepartamentosController : Controller
     {

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace ProyectoFinal
+namespace ProyectoFinalRecursosHumanos
 {
     public class FilterConfig
     {

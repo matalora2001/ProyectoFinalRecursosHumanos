@@ -1,89 +1,133 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProyectoFinalRecursosHumanos.Context;
+using ProyectoFinalRecursosHumanos.Models;
 
-namespace ProyectoFinal.Controllers
+namespace ProyectoFinalRecursosHumanos.Controllers
 {
     public class LicenciasController : Controller
     {
+        private GestionContext db = new GestionContext();
+
         // GET: Licencias
         public ActionResult Index()
         {
-            return View();
+            var licencias = db.Licencias.Include(l => l.Empleado);
+            return View(licencias.ToList());
         }
 
         // GET: Licencias/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Licencia licencia = db.Licencias.Find(id);
+            if (licencia == null)
+            {
+                return HttpNotFound();
+            }
+            return View(licencia);
         }
 
         // GET: Licencias/Create
         public ActionResult Create()
         {
+            ViewBag.Id_Empleado = new SelectList(db.Empleados, "Id_Empleado", "Nombre_Empleado");
             return View();
         }
 
         // POST: Licencias/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id_licencia,Id_Empleado,Inicio_Permiso,Fin_Permiso,Motivo,Comentario")] Licencia licencia)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Licencias.Add(licencia);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            ViewBag.Id_Empleado = new SelectList(db.Empleados, "Id_Empleado", "CodigoEmpleado", licencia.Id_Empleado);
+            return View(licencia);
         }
 
         // GET: Licencias/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Licencia licencia = db.Licencias.Find(id);
+            if (licencia == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.Id_Empleado = new SelectList(db.Empleados, "Id_Empleado", "CodigoEmpleado", licencia.Id_Empleado);
+            return View(licencia);
         }
 
         // POST: Licencias/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id_licencia,Id_Empleado,Inicio_Permiso,Fin_Permiso,Motivo,Comentario")] Licencia licencia)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(licencia).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ViewBag.Id_Empleado = new SelectList(db.Empleados, "Id_Empleado", "CodigoEmpleado", licencia.Id_Empleado);
+            return View(licencia);
         }
 
         // GET: Licencias/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Licencia licencia = db.Licencias.Find(id);
+            if (licencia == null)
+            {
+                return HttpNotFound();
+            }
+            return View(licencia);
         }
 
         // POST: Licencias/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Licencia licencia = db.Licencias.Find(id);
+            db.Licencias.Remove(licencia);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }

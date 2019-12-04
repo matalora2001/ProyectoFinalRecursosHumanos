@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProyectoFinal.Controllers
+namespace ProyectoFinalRecursosHumanos.Controllers
 {
     public class VacacionesController : Controller
     {

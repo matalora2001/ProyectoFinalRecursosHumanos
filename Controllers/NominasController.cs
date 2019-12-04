@@ -1,23 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProyectoFinalRecursosHumanos.Context;
+using ProyectoFinalRecursosHumanos.Models;
 
-namespace ProyectoFinal.Controllers
+namespace ProyectoFinalRecursosHumanos.Controllers
 {
     public class NominasController : Controller
     {
+        private GestionContext db = new GestionContext();
+
         // GET: Nominas
         public ActionResult Index()
         {
+
+            var nominas = db.GetNominas.ToList();
+
+            return View(nominas);
+            //ViewBag.NominaSum = db.Empleados.Where(x => x.status == true).Sum(x => x.Salario);
+            //return View(db.GetNominas.Where(x => x.Año == ano).ToList());
+        }
+
+        public ActionResult HomeNomina()
+        {
+            ViewBag.calcuNomina = db.Empleados.Where(x => x.status == true).Sum(x => x.Salario);
             return View();
         }
 
-        // GET: Nominas/Details/5
-        public ActionResult Details(int id)
+        public ActionResult calcuNomina()
         {
-            return View();
+            var aux = db.Empleados.Where(x => x.status == true).Sum(x => x.Salario);
+            Nomina nomina = new Nomina
+            {
+                Mes = DateTime.Now.Month,
+                Año = DateTime.Now.Year,
+                Monto_Total = aux
+            };
+            if (db.GetNominas.FirstOrDefault(x => x.Año == nomina.Año && x.Mes == nomina.Mes) != null)
+            {
+                return View();
+
+            }
+            else
+            {
+                db.GetNominas.Add(nomina);
+                db.SaveChanges();
+                //nomina.Monto_Total = aux;
+                return RedirectToAction("Index");
+            }
+
+        }
+
+
+        // GET: Nominas/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Nomina nomina = db.GetNominas.Find(id);
+            if (nomina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nomina);
         }
 
         // GET: Nominas/Create
@@ -27,63 +79,86 @@ namespace ProyectoFinal.Controllers
         }
 
         // POST: Nominas/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "Id_Nomina,Año,Mes,Monto_Total")] Nomina nomina)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.GetNominas.Add(nomina);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(nomina);
         }
 
         // GET: Nominas/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Nomina nomina = db.GetNominas.Find(id);
+            if (nomina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nomina);
         }
 
         // POST: Nominas/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id_Nomina,Año,Mes,Monto_Total")] Nomina nomina)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(nomina).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(nomina);
         }
 
         // GET: Nominas/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Nomina nomina = db.GetNominas.Find(id);
+            if (nomina == null)
+            {
+                return HttpNotFound();
+            }
+            return View(nomina);
         }
 
         // POST: Nominas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Nomina nomina = db.GetNominas.Find(id);
+            db.GetNominas.Remove(nomina);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }

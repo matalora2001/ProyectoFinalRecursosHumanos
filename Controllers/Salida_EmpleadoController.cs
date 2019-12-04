@@ -1,10 +1,13 @@
-﻿using System;
+﻿using ProyectoFinalRecursosHumanos.Context;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProyectoFinal.Controllers
+namespace ProyectoFinalRecursosHumanos.Controllers
 {
     public class Salida_EmpleadoController : Controller
     {
