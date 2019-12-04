@@ -280,6 +280,11 @@
     <Content Include="Views\Cargos\Create.cshtml" />
     <Content Include="Views\Cargos\Edit.cshtml" />
     <Content Include="Views\Cargos\Delete.cshtml" />
+    <Content Include="Views\Nominas\Index.cshtml" />
+    <Content Include="Views\Nominas\HomeNomina.cshtml" />
+    <Content Include="Views\Nominas\calcuNomina.cshtml" />
+    <Content Include="Views\Nominas\Create.cshtml" />
+    <Content Include="Views\Nominas\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,7 +292,6 @@
     <Folder Include="Views\Empleados\" />
     <Folder Include="Views\Gestion\" />
     <Folder Include="Views\Licencias\" />
-    <Folder Include="Views\Nominas\" />
     <Folder Include="Views\Permisos\" />
     <Folder Include="Views\Salida_Empleado\" />
     <Folder Include="Views\Vacaciones\" />
