@@ -306,12 +306,23 @@
     <Content Include="Views\Licencias\Create.cshtml" />
     <Content Include="Views\Licencias\Edit.cshtml" />
     <Content Include="Views\Licencias\Delete.cshtml" />
+    <Content Include="Views\Permisos\Index.cshtml" />
+    <Content Include="Views\Permisos\Details.cshtml" />
+    <Content Include="Views\Permisos\Create.cshtml" />
+    <Content Include="Views\Permisos\Edit.cshtml" />
+    <Content Include="Views\Permisos\Delete.cshtml" />
+    <Content Include="Views\Vacaciones\Create.cshtml" />
+    <Content Include="Views\Vacaciones\Edit.cshtml" />
+    <Content Include="Views\Vacaciones\Delete.cshtml" />
+    <Content Include="Views\Vacaciones\Index.cshtml" />
+    <Content Include="Views\Salida_Empleado\Index.cshtml" />
+    <Content Include="Views\Salida_Empleado\Details.cshtml" />
+    <Content Include="Views\Salida_Empleado\Create.cshtml" />
+    <Content Include="Views\Salida_Empleado\Edit.cshtml" />
+    <Content Include="Views\Salida_Empleado\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Permisos\" />
-    <Folder Include="Views\Salida_Empleado\" />
-    <Folder Include="Views\Vacaciones\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
