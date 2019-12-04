@@ -20,6 +20,7 @@ namespace ProyectoFinalRecursosHumanos
         public string Motivo { get; set; }
         public System.DateTime Fecha_Salida { get; set; }
     
-        public virtual Empleado Empleado { get; set; }
+        public virtual Empleadoes Empleadoes { get; set; }
+        public object Empleado { get; internal set; }
     }
 }

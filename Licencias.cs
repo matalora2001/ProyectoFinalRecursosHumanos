@@ -12,18 +12,15 @@ namespace ProyectoFinalRecursosHumanos
     using System;
     using System.Collections.Generic;
     
-    public partial class Cargo
+    public partial class Licencias
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Cargo()
-        {
-            this.Empleadoes = new HashSet<Empleado>();
-        }
+        public int Id_licencia { get; set; }
+        public int Id_Empleado { get; set; }
+        public System.DateTime Inicio_Permiso { get; set; }
+        public System.DateTime Fin_Permiso { get; set; }
+        public string Motivo { get; set; }
+        public string Comentario { get; set; }
     
-        public int Id_Cargo { get; set; }
-        public string Nombre_Cargo { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Empleado> Empleadoes { get; set; }
+        public virtual Empleadoes Empleadoes { get; set; }
     }
 }

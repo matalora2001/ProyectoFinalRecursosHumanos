@@ -12,12 +12,12 @@ namespace ProyectoFinalRecursosHumanos
     using System;
     using System.Collections.Generic;
     
-    public partial class Departamento
+    public partial class Departamentoes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Departamento()
+        public Departamentoes()
         {
-            this.Empleadoes = new HashSet<Empleado>();
+            this.Empleadoes = new HashSet<Empleadoes>();
         }
     
         public int Id_Depto { get; set; }
@@ -25,6 +25,6 @@ namespace ProyectoFinalRecursosHumanos
         public string Nombre_Depto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Empleado> Empleadoes { get; set; }
+        public virtual ICollection<Empleadoes> Empleadoes { get; set; }
     }
 }

@@ -230,7 +230,7 @@
           <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityType Name="Cargo">
+        <EntityType Name="Cargoes">
           <Key>
             <PropertyRef Name="Id_Cargo" />
           </Key>
@@ -238,7 +238,7 @@
           <Property Name="Nombre_Cargo" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo" FromRole="Cargoes" ToRole="Empleadoes" />
         </EntityType>
-        <EntityType Name="Departamento">
+        <EntityType Name="Departamentoes">
           <Key>
             <PropertyRef Name="Id_Depto" />
           </Key>
@@ -247,7 +247,7 @@
           <Property Name="Nombre_Depto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Id_Depto" FromRole="Departamentoes" ToRole="Empleadoes" />
         </EntityType>
-        <EntityType Name="Empleado">
+        <EntityType Name="Empleadoes">
           <Key>
             <PropertyRef Name="Id_Empleado" />
           </Key>
@@ -261,14 +261,14 @@
           <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Salario" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="status" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Cargo" Relationship="Self.FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo" FromRole="Empleadoes" ToRole="Cargoes" />
-          <NavigationProperty Name="Departamento" Relationship="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Id_Depto" FromRole="Empleadoes" ToRole="Departamentoes" />
+          <NavigationProperty Name="Cargoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo" FromRole="Empleadoes" ToRole="Cargoes" />
+          <NavigationProperty Name="Departamentoes" Relationship="Self.FK_dbo_Empleadoes_dbo_Departamentoes_Id_Depto" FromRole="Empleadoes" ToRole="Departamentoes" />
           <NavigationProperty Name="Licencias" Relationship="Self.FK_dbo_Licencias_dbo_Empleadoes_Id_Empleado" FromRole="Empleadoes" ToRole="Licencias" />
           <NavigationProperty Name="Permisoes" Relationship="Self.FK_dbo_Permisoes_dbo_Empleadoes_Id_Empleado" FromRole="Empleadoes" ToRole="Permisoes" />
           <NavigationProperty Name="Salida_Empleado" Relationship="Self.FK_dbo_Salida_Empleado_dbo_Empleadoes_Id_Empleado" FromRole="Empleadoes" ToRole="Salida_Empleado" />
           <NavigationProperty Name="Vacacions" Relationship="Self.FK_dbo_Vacacions_dbo_Empleadoes_Id_Empleado" FromRole="Empleadoes" ToRole="Vacacions" />
         </EntityType>
-        <EntityType Name="Licencia">
+        <EntityType Name="Licencias">
           <Key>
             <PropertyRef Name="Id_licencia" />
           </Key>
@@ -278,9 +278,9 @@
           <Property Name="Fin_Permiso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Licencias_dbo_Empleadoes_Id_Empleado" FromRole="Licencias" ToRole="Empleadoes" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Licencias_dbo_Empleadoes_Id_Empleado" FromRole="Licencias" ToRole="Empleadoes" />
         </EntityType>
-        <EntityType Name="Nomina">
+        <EntityType Name="Nominas">
           <Key>
             <PropertyRef Name="Id_Nomina" />
           </Key>
@@ -289,7 +289,7 @@
           <Property Name="Mes" Type="Int32" Nullable="false" />
           <Property Name="Monto_Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="Permiso">
+        <EntityType Name="Permisoes">
           <Key>
             <PropertyRef Name="Id_Permiso" />
           </Key>
@@ -298,7 +298,7 @@
           <Property Name="Inicio_Permiso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Fin_Permiso" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Permisoes_dbo_Empleadoes_Id_Empleado" FromRole="Permisoes" ToRole="Empleadoes" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Permisoes_dbo_Empleadoes_Id_Empleado" FromRole="Permisoes" ToRole="Empleadoes" />
         </EntityType>
         <EntityType Name="Salida_Empleado">
           <Key>
@@ -309,9 +309,9 @@
           <Property Name="Tipo_Salida" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Motivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Fecha_Salida" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Salida_Empleado_dbo_Empleadoes_Id_Empleado" FromRole="Salida_Empleado" ToRole="Empleadoes" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Salida_Empleado_dbo_Empleadoes_Id_Empleado" FromRole="Salida_Empleado" ToRole="Empleadoes" />
         </EntityType>
-        <EntityType Name="Vacacion">
+        <EntityType Name="Vacacions">
           <Key>
             <PropertyRef Name="Id_Vacacion" />
           </Key>
@@ -321,13 +321,13 @@
           <Property Name="Fin_Vacaciones" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Año" Type="Int32" Nullable="false" />
           <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_dbo_Vacacions_dbo_Empleadoes_Id_Empleado" FromRole="Vacacions" ToRole="Empleadoes" />
+          <NavigationProperty Name="Empleadoes" Relationship="Self.FK_dbo_Vacacions_dbo_Empleadoes_Id_Empleado" FromRole="Vacacions" ToRole="Empleadoes" />
         </EntityType>
         <Association Name="FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo">
-          <End Role="Cargoes" Type="Self.Cargo" Multiplicity="1">
+          <End Role="Cargoes" Type="Self.Cargoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="*" />
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cargoes">
               <PropertyRef Name="Id_Cargo" />
@@ -338,10 +338,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Empleadoes_dbo_Departamentoes_Id_Depto">
-          <End Role="Departamentoes" Type="Self.Departamento" Multiplicity="1">
+          <End Role="Departamentoes" Type="Self.Departamentoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="*" />
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departamentoes">
               <PropertyRef Name="Id_Depto" />
@@ -352,10 +352,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Licencias_dbo_Empleadoes_Id_Empleado">
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="1">
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Licencias" Type="Self.Licencia" Multiplicity="*" />
+          <End Role="Licencias" Type="Self.Licencias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empleadoes">
               <PropertyRef Name="Id_Empleado" />
@@ -366,10 +366,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Permisoes_dbo_Empleadoes_Id_Empleado">
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="1">
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Permisoes" Type="Self.Permiso" Multiplicity="*" />
+          <End Role="Permisoes" Type="Self.Permisoes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empleadoes">
               <PropertyRef Name="Id_Empleado" />
@@ -380,7 +380,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Salida_Empleado_dbo_Empleadoes_Id_Empleado">
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="1">
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Salida_Empleado" Type="Self.Salida_Empleado" Multiplicity="*" />
@@ -394,10 +394,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_dbo_Vacacions_dbo_Empleadoes_Id_Empleado">
-          <End Role="Empleadoes" Type="Self.Empleado" Multiplicity="1">
+          <End Role="Empleadoes" Type="Self.Empleadoes" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="Vacacions" Type="Self.Vacacion" Multiplicity="*" />
+          <End Role="Vacacions" Type="Self.Vacacions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empleadoes">
               <PropertyRef Name="Id_Empleado" />
@@ -407,16 +407,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HumanResourcesEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HumanResourcesEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-          <EntitySet Name="Cargoes" EntityType="Self.Cargo" />
-          <EntitySet Name="Departamentoes" EntityType="Self.Departamento" />
-          <EntitySet Name="Empleadoes" EntityType="Self.Empleado" />
-          <EntitySet Name="Licencias" EntityType="Self.Licencia" />
-          <EntitySet Name="Nominas" EntityType="Self.Nomina" />
-          <EntitySet Name="Permisoes" EntityType="Self.Permiso" />
+          <EntitySet Name="Cargoes" EntityType="Self.Cargoes" />
+          <EntitySet Name="Departamentoes" EntityType="Self.Departamentoes" />
+          <EntitySet Name="Empleadoes" EntityType="Self.Empleadoes" />
+          <EntitySet Name="Licencias" EntityType="Self.Licencias" />
+          <EntitySet Name="Nominas" EntityType="Self.Nominas" />
+          <EntitySet Name="Permisoes" EntityType="Self.Permisoes" />
           <EntitySet Name="Salida_Empleado" EntityType="Self.Salida_Empleado" />
-          <EntitySet Name="Vacacions" EntityType="Self.Vacacion" />
+          <EntitySet Name="Vacacions" EntityType="Self.Vacacions" />
           <AssociationSet Name="FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo" Association="Self.FK_dbo_Empleadoes_dbo_Cargoes_Id_Cargo">
             <End Role="Cargoes" EntitySet="Cargoes" />
             <End Role="Empleadoes" EntitySet="Empleadoes" />
@@ -447,7 +447,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HumanResourcesModelStoreContainer" CdmEntityContainer="HumanResourcesEntities">
+        <EntityContainerMapping StorageEntityContainer="HumanResourcesModelStoreContainer" CdmEntityContainer="HumanResourcesEntities2">
           <EntitySetMapping Name="C__MigrationHistory">
             <EntityTypeMapping TypeName="HumanResourcesModel.C__MigrationHistory">
               <MappingFragment StoreEntitySet="__MigrationHistory">
@@ -459,7 +459,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cargoes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Cargo">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Cargoes">
               <MappingFragment StoreEntitySet="Cargoes">
                 <ScalarProperty Name="Id_Cargo" ColumnName="Id_Cargo" />
                 <ScalarProperty Name="Nombre_Cargo" ColumnName="Nombre_Cargo" />
@@ -467,7 +467,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Departamentoes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Departamento">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Departamentoes">
               <MappingFragment StoreEntitySet="Departamentoes">
                 <ScalarProperty Name="Id_Depto" ColumnName="Id_Depto" />
                 <ScalarProperty Name="Codigo_Depto" ColumnName="Codigo_Depto" />
@@ -476,7 +476,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Empleadoes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Empleado">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Empleadoes">
               <MappingFragment StoreEntitySet="Empleadoes">
                 <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
                 <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
@@ -492,7 +492,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Licencias">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Licencia">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Licencias">
               <MappingFragment StoreEntitySet="Licencias">
                 <ScalarProperty Name="Id_licencia" ColumnName="Id_licencia" />
                 <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
@@ -504,7 +504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nominas">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Nomina">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Nominas">
               <MappingFragment StoreEntitySet="Nominas">
                 <ScalarProperty Name="Id_Nomina" ColumnName="Id_Nomina" />
                 <ScalarProperty Name="Año" ColumnName="Año" />
@@ -514,7 +514,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permisoes">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Permiso">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Permisoes">
               <MappingFragment StoreEntitySet="Permisoes">
                 <ScalarProperty Name="Id_Permiso" ColumnName="Id_Permiso" />
                 <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
@@ -536,7 +536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vacacions">
-            <EntityTypeMapping TypeName="HumanResourcesModel.Vacacion">
+            <EntityTypeMapping TypeName="HumanResourcesModel.Vacacions">
               <MappingFragment StoreEntitySet="Vacacions">
                 <ScalarProperty Name="Id_Vacacion" ColumnName="Id_Vacacion" />
                 <ScalarProperty Name="Id_Empleado" ColumnName="Id_Empleado" />
@@ -561,7 +561,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

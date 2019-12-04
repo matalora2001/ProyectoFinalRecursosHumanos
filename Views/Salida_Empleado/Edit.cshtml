@@ -14,29 +14,29 @@
         <h4>Salida_Empleado</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id_Salida)
+        @Html.HiddenFor(models => models.Id_Salida)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Id_Empleado, "Id_Empleado", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("Id_Empleado", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Id_Empleado, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(models => models.Id_Empleado, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Tipo_Salida, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Tipo_Salida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tipo_Salida, "", new { @class = "text-danger" })
+                @Html.EditorFor(models => models.Tipo_Salida, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(models => models.Tipo_Salida, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Motivo, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(models => models.Motivo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Motivo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Motivo, "", new { @class = "text-danger" })
+                @Html.EditorFor(models => models.Motivo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(models => models.Motivo, "", new { @class = "text-danger" })
             </div>
         </div>
 

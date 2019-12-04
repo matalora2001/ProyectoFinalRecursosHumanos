@@ -10,7 +10,7 @@ namespace ProyectoFinalRecursosHumanos.Context
     public class GestionContext: DbContext
     {
         public GestionContext()
-            : base("DbConnection")
+            : base("HumanResourcesEntities")
         {
 
         }

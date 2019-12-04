@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using ProyectoFinalRecursosHumanos.Context;
 using ProyectoFinalRecursosHumanos.Models;
 
-namespace ProyectoFinalRecursosHumanos.Controllers
+namespace ProyectoFinal.Controllers
 {
     public class CargosController : Controller
     {

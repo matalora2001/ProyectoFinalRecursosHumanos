@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CA3147: Marcar los controladores de verbos con validación de token antifalsificación
+dotnet_diagnostic.CA3147.severity = none

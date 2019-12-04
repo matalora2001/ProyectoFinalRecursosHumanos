@@ -13,10 +13,10 @@ namespace ProyectoFinalRecursosHumanos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class HumanResourcesEntities2 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public HumanResourcesEntities2()
+            : base("name=HumanResourcesEntities2")
         {
         }
     
@@ -25,5 +25,14 @@ namespace ProyectoFinalRecursosHumanos
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<Cargoes> Cargoes { get; set; }
+        public virtual DbSet<Departamentoes> Departamentoes { get; set; }
+        public virtual DbSet<Empleadoes> Empleadoes { get; set; }
+        public virtual DbSet<Licencias> Licencias { get; set; }
+        public virtual DbSet<Nominas> Nominas { get; set; }
+        public virtual DbSet<Permisoes> Permisoes { get; set; }
+        public virtual DbSet<Salida_Empleado> Salida_Empleado { get; set; }
+        public virtual DbSet<Vacacions> Vacacions { get; set; }
     }
 }

@@ -12,14 +12,15 @@ namespace ProyectoFinalRecursosHumanos
     using System;
     using System.Collections.Generic;
     
-    public partial class Permiso
+    public partial class Vacacions
     {
-        public int Id_Permiso { get; set; }
+        public int Id_Vacacion { get; set; }
         public int Id_Empleado { get; set; }
-        public System.DateTime Inicio_Permiso { get; set; }
-        public System.DateTime Fin_Permiso { get; set; }
+        public System.DateTime Inicio_Vacaciones { get; set; }
+        public System.DateTime Fin_Vacaciones { get; set; }
+        public int Año { get; set; }
         public string Comentario { get; set; }
     
-        public virtual Empleado Empleado { get; set; }
+        public virtual Empleadoes Empleadoes { get; set; }
     }
 }

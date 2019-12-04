@@ -12,15 +12,15 @@ namespace ProyectoFinalRecursosHumanos
     using System;
     using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class Empleadoes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Empleado()
+        public Empleadoes()
         {
-            this.Licencias = new HashSet<Licencia>();
-            this.Permisoes = new HashSet<Permiso>();
+            this.Licencias = new HashSet<Licencias>();
+            this.Permisoes = new HashSet<Permisoes>();
             this.Salida_Empleado = new HashSet<Salida_Empleado>();
-            this.Vacacions = new HashSet<Vacacion>();
+            this.Vacacions = new HashSet<Vacacions>();
         }
     
         public int Id_Empleado { get; set; }
@@ -34,15 +34,15 @@ namespace ProyectoFinalRecursosHumanos
         public decimal Salario { get; set; }
         public bool status { get; set; }
     
-        public virtual Cargo Cargo { get; set; }
-        public virtual Departamento Departamento { get; set; }
+        public virtual Cargoes Cargoes { get; set; }
+        public virtual Departamentoes Departamentoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Licencia> Licencias { get; set; }
+        public virtual ICollection<Licencias> Licencias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Permiso> Permisoes { get; set; }
+        public virtual ICollection<Permisoes> Permisoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Salida_Empleado> Salida_Empleado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vacacion> Vacacions { get; set; }
+        public virtual ICollection<Vacacions> Vacacions { get; set; }
     }
 }

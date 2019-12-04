@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace ProyectoFinalRecursosHumanos.Models
 {
     public class Licencia
