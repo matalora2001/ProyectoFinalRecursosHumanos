@@ -285,10 +285,14 @@
     <Content Include="Views\Nominas\calcuNomina.cshtml" />
     <Content Include="Views\Nominas\Create.cshtml" />
     <Content Include="Views\Nominas\Delete.cshtml" />
+    <Content Include="Views\Departamentos\Index.cshtml" />
+    <Content Include="Views\Departamentos\Details.cshtml" />
+    <Content Include="Views\Departamentos\Create.cshtml" />
+    <Content Include="Views\Departamentos\Edit.cshtml" />
+    <Content Include="Views\Departamentos\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Departamentos\" />
     <Folder Include="Views\Empleados\" />
     <Folder Include="Views\Gestion\" />
     <Folder Include="Views\Licencias\" />
