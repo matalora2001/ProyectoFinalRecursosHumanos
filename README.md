@@ -1,0 +1,3 @@
+Proyecto Final de Programación 3 - ITLA
+
+El proyecto consiste en desarrollar un sistema de control de Recursos Humanos, utilizando Visual Studio, MVC, C#, etc...
